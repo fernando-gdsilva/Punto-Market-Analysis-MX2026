@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análisis Competitivo – Medios de Pago Gasolineras México 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0f2542; --navy-mid: #1b3a6b; --blue: #2e75b6; --blue-light: #d9e8f5;
+  --red: #c00000; --orange: #e87722; --green: #1f7a4d; --purple: #6b3fa0;
+  --purple-light: #ede8f5; --gray: #f4f5f7; --gray-mid: #e2e5ea;
+  --text: #1a1f2e; --text-muted: #5a6478; --white: #ffffff; --header-h: 64px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: #f0f2f5; color: var(--text); overflow-x: hidden; }
+
+/* HEADER */
+#site-header {
+  position: fixed; top: 0; left: 0; right: 0; height: var(--header-h);
+  background: var(--navy); display: flex; align-items: center;
+  padding: 0 1.5rem; gap: 0.5rem; z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.35); border-bottom: 2px solid var(--blue);
+}
+.header-brand { font-family: 'Playfair Display', serif; font-size: 0.8rem; color: rgba(255,255,255,0.45); white-space: nowrap; margin-right: 0.75rem; flex-shrink: 0; }
+.header-brand strong { color: rgba(255,255,255,0.8); }
+.nav-divider { width: 1px; height: 28px; background: rgba(255,255,255,0.12); flex-shrink: 0; margin-right: 0.25rem; }
+.nav-links { display: flex; gap: 0.2rem; flex: 1; overflow-x: auto; scrollbar-width: none; }
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-btn {
+  padding: 0.32rem 0.75rem; border: 1px solid rgba(255,255,255,0.13); border-radius: 4px;
+  background: transparent; color: rgba(255,255,255,0.65); font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem; font-weight: 500; cursor: pointer; white-space: nowrap;
+  transition: all 0.2s; text-decoration: none; letter-spacing: 0.02em;
+}
+.nav-btn:hover, .nav-btn.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+.nav-btn.nb-netpay:hover, .nav-btn.nb-netpay.active { background: var(--orange); border-color: var(--orange); }
+.nav-btn.nb-omnigas:hover, .nav-btn.nb-omnigas.active { background: var(--green); border-color: var(--green); }
+.nav-btn.nb-smart:hover, .nav-btn.nb-smart.active { background: var(--purple); border-color: var(--purple); }
+
+/* PAGE */
+.page { padding-top: var(--header-h); }
+.section { min-height: 100vh; padding: 5rem 0 4rem; position: relative; }
+.section-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+/* COVER */
+#cover { background: var(--navy); display: flex; align-items: center; justify-content: center; min-height: 100vh; overflow: hidden; position: relative; }
+.cover-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 40%, rgba(46,117,182,0.28) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(192,0,0,0.1) 0%, transparent 50%); }
+.cover-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 60px 60px; }
+.cover-content { position: relative; z-index: 1; text-align: center; padding: 2rem; }
+.cover-tag { display: inline-block; border: 1px solid rgba(46,117,182,0.45); color: var(--blue); font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.32rem 1rem; border-radius: 2px; margin-bottom: 2rem; font-family: 'DM Mono', monospace; }
+.cover-title { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 6vw, 4.8rem); font-weight: 900; color: #fff; line-height: 1.05; margin-bottom: 1rem; letter-spacing: -0.02em; }
+.cover-title .accent { color: var(--blue); }
+.cover-sub { font-size: 1.05rem; color: rgba(255,255,255,0.5); font-weight: 300; margin-bottom: 2.5rem; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+.cover-companies { display: flex; gap: 1px; justify-content: center; margin-bottom: 3rem; flex-wrap: wrap; }
+.cover-company { padding: 0.55rem 1.2rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+.cc-punto { background: var(--navy-mid); color: #fff; border: 1px solid rgba(46,117,182,0.4); }
+.cc-netpay { background: var(--orange); color: #fff; }
+.cc-omnigas { background: var(--green); color: #fff; }
+.cc-smart { background: var(--purple); color: #fff; }
+.cover-meta { font-size: 0.72rem; color: rgba(255,255,255,0.28); font-family: 'DM Mono', monospace; letter-spacing: 0.04em; }
+.cover-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.28); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.cover-scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(46,117,182,0.5), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+@keyframes scrollPulse { 0%,100% { opacity:0.3; } 50% { opacity:1; } }
+
+/* SECTION HEADERS */
+.section-header { margin-bottom: 3rem; }
+.section-number { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--blue); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.75rem, 3.5vw, 2.7rem); font-weight: 700; color: var(--navy); line-height: 1.15; margin-bottom: 0.75rem; }
+.section-desc { font-size: 0.975rem; color: var(--text-muted); font-weight: 300; line-height: 1.7; max-width: 640px; }
+.section-divider { width: 60px; height: 3px; background: var(--blue); margin-top: 1rem; }
+.netpay-accent .section-number { color: var(--orange); }
+.netpay-accent .section-title { color: #5a2500; }
+.netpay-accent .section-divider { background: var(--orange); }
+.omnigas-accent .section-number { color: var(--green); }
+.omnigas-accent .section-title { color: #0a2e1c; }
+.omnigas-accent .section-divider { background: var(--green); }
+.smart-accent .section-number { color: var(--purple); }
+.smart-accent .section-title { color: #2e1460; }
+.smart-accent .section-divider { background: var(--purple); }
+
+/* SECTION BGs */
+#contexto { background: var(--gray); }
+#netpay   { background: #fffaf5; }
+#omnigas  { background: #f5fdf8; }
+#smartpay { background: #f7f4fd; }
+#punto    { background: #f5f8fd; }
+#comparativo { background: #fff; }
+#amenazas    { background: #f8f9fc; }
+#contexto-macro { background: #f0f2f5; }
+#conclusiones { background: var(--navy); }
+.section-bg-label { position: absolute; right: 0; top: 50%; transform: translateY(-50%) translateX(30%); font-family: 'Playfair Display', serif; font-size: clamp(5rem, 14vw, 13rem); font-weight: 900; color: rgba(0,0,0,0.022); pointer-events: none; user-select: none; white-space: nowrap; letter-spacing: -0.04em; }
+
+/* CARDS */
+.card { background: #fff; border-radius: 8px; padding: 1.75rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.05); margin-bottom: 1.5rem; }
+.card-title { font-size: 0.63rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; font-family: 'DM Mono', monospace; }
+.card p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 0.85rem; }
+.card p:last-child { margin-bottom: 0; }
+
+/* BULLET LIST */
+.bullet-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.bullet-list li { display: flex; gap: 0.75rem; font-size: 0.88rem; line-height: 1.6; }
+.bullet-list li::before { content: "›"; font-weight: 700; font-size: 1.1rem; flex-shrink: 0; margin-top: -1px; }
+.bl-blue li::before   { color: var(--blue); }
+.bl-orange li::before { color: var(--orange); }
+.bl-green li::before  { color: var(--green); }
+.bl-purple li::before { color: var(--purple); }
+.bl-red li::before    { color: var(--red); }
+.bl-navy li::before   { color: var(--navy); }
+
+/* PROP BOX */
+.prop-box { border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+.prop-header { padding: 1rem 1.5rem; font-weight: 700; font-size: 0.84rem; color: #fff; }
+.prop-body { background: #fff; padding: 1.5rem; border: 1px solid var(--gray-mid); border-top: none; border-radius: 0 0 8px 8px; }
+.prop-body .intro { font-size: 0.9rem; line-height: 1.65; margin-bottom: 1rem; color: var(--text); font-style: italic; }
+
+/* STAT GRID */
+.stat-grid { display: grid; gap: 1px; background: var(--gray-mid); border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; }
+.stat-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.stat-box { padding: 1.75rem 1.25rem; text-align: center; color: #fff; }
+.stat-number { font-family: 'Playfair Display', serif; font-size: 2.1rem; font-weight: 700; line-height: 1; margin-bottom: 0.4rem; }
+.stat-label { font-size: 0.73rem; opacity: 0.7; line-height: 1.3; }
+
+/* DATA TABLE */
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.855rem; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 1.5rem; }
+.data-table thead th { padding: 0.85rem 1rem; text-align: left; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; }
+.data-table tbody tr:nth-child(even) td { background: #f5f9fd; }
+.data-table tbody tr:nth-child(odd) td { background: #fff; }
+.data-table tbody td { padding: 0.82rem 1rem; border-bottom: 1px solid var(--gray-mid); line-height: 1.55; vertical-align: top; }
+.data-table tbody td:first-child { font-weight: 600; }
+.terminal-name { color: var(--orange) !important; font-family: 'DM Mono', monospace; font-size: 0.82rem; width: 85px; }
+
+/* FOUR-COL TABLE */
+.four-col-table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 1.5rem; }
+.four-col-table th { padding: 0.85rem 0.85rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #fff; }
+.four-col-table tbody tr:nth-child(even) td { background: #f5f9fd; }
+.four-col-table tbody tr:nth-child(odd) td { background: #fff; }
+.four-col-table tbody td { padding: 0.8rem 0.85rem; border-bottom: 1px solid var(--gray-mid); font-size: 0.82rem; line-height: 1.5; vertical-align: top; border-right: 1px solid var(--gray-mid); }
+.four-col-table tbody td:last-child { border-right: none; }
+.th-punto  { background: var(--navy-mid); }
+.th-netpay { background: var(--orange); }
+.th-omnigas { background: var(--green); }
+.th-smart  { background: var(--purple); }
+
+/* CONTACT TABLE */
+.contact-table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 1.5rem; font-size: 0.8rem; }
+.contact-table th { padding: 0.8rem 0.75rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #fff; }
+.ct-label { background: var(--navy); }
+.ct-p  { background: var(--navy-mid); }
+.ct-n  { background: var(--orange); }
+.ct-o  { background: var(--green); }
+.ct-s  { background: var(--purple); }
+.contact-table tbody tr:nth-child(even) td { background: #f5f8fc; }
+.contact-table tbody tr:nth-child(odd) td { background: #fff; }
+.contact-table tbody td { padding: 0.72rem 0.75rem; border-bottom: 1px solid var(--gray-mid); border-right: 1px solid var(--gray-mid); vertical-align: top; line-height: 1.5; }
+.contact-table tbody td:first-child { font-weight: 600; color: var(--navy); font-size: 0.75rem; }
+.contact-table a { color: var(--blue); text-decoration: none; }
+
+/* HIGHLIGHT BOX */
+.hl-box { border-radius: 8px; overflow: hidden; margin-bottom: 0.9rem; box-shadow: 0 1px 4px rgba(0,0,0,0.08); display: grid; grid-template-columns: 140px 1fr; }
+.hl-label { display: flex; align-items: center; justify-content: center; padding: 1.1rem; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; text-align: center; line-height: 1.3; }
+.hl-content { background: #fff; padding: 1.1rem 1.4rem; font-size: 0.875rem; color: var(--text); line-height: 1.65; border: 1px solid var(--gray-mid); border-left: none; border-radius: 0 8px 8px 0; }
+
+/* THREAT BOX */
+.threat-box { border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+.threat-header { padding: 0.9rem 1.5rem; font-weight: 700; font-size: 0.875rem; }
+.th-red    { background: #fff0f0; border-left: 4px solid var(--red); color: var(--red); }
+.th-green2 { background: #f0fff4; border-left: 4px solid var(--green); color: #155235; }
+.th-purple2{ background: #f4f0ff; border-left: 4px solid var(--purple); color: #3a1a78; }
+.threat-body { padding: 1.4rem 1.5rem; background: #fff; border: 1px solid var(--gray-mid); border-top: none; border-radius: 0 0 8px 8px; }
+.threat-body > p { font-size: 0.875rem; line-height: 1.65; margin-bottom: 1rem; }
+
+/* ADVANTAGE TABLE */
+.adv-table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 1.5rem; }
+.adv-table thead th { padding: 0.85rem 1rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; background: var(--navy); }
+.adv-table tbody tr:nth-child(even) td { background: var(--blue-light); }
+.adv-table tbody tr:nth-child(odd) td { background: #fff; }
+.adv-table tbody td { padding: 0.82rem 1rem; border-bottom: 1px solid var(--gray-mid); font-size: 0.855rem; line-height: 1.55; vertical-align: top; }
+.adv-table tbody td:first-child { font-weight: 600; color: var(--navy); width: 44%; border-right: 1px solid var(--gray-mid); }
+
+/* NUMBERED LIST */
+.numbered-list { display: flex; flex-direction: column; gap: 1px; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.numbered-item { display: grid; grid-template-columns: 48px 1fr; }
+.num-badge { display: flex; align-items: center; justify-content: center; background: var(--blue); color: #fff; font-family: 'DM Mono', monospace; font-weight: 700; font-size: 0.78rem; }
+.num-content { background: #fff; padding: 1rem 1.25rem; font-size: 0.86rem; line-height: 1.6; border-bottom: 1px solid var(--gray-mid); }
+.numbered-item:last-child .num-content { border-bottom: none; }
+.num-content strong { color: var(--navy); }
+
+/* CONTEXT GRID */
+.context-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--gray-mid); border-radius: 10px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
+.context-card { background: #fff; padding: 1.75rem 1.5rem; }
+.cc-badge { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.45rem 0.85rem; border-radius: 4px; display: inline-block; margin-bottom: 1rem; font-family: 'DM Mono', monospace; }
+.cc-reg .cc-badge { background: rgba(15,37,66,0.07); color: var(--navy); }
+.cc-dem .cc-badge { background: rgba(46,117,182,0.09); color: var(--blue); }
+.cc-tec .cc-badge { background: rgba(31,122,77,0.09); color: var(--green); }
+.context-card p { font-size: 0.86rem; line-height: 1.65; color: var(--text-muted); }
+
+/* SYNTHESIS GRID */
+.synthesis-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--gray-mid); border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.synth-col { background: #fff; padding: 1.4rem; }
+.synth-head { padding: 0.85rem 1rem; font-weight: 700; font-size: 0.75rem; color: #fff; text-align: center; margin: -1.4rem -1.4rem 1.1rem; letter-spacing: 0.04em; text-transform: uppercase; }
+.synth-punto .synth-head { background: var(--navy-mid); }
+.synth-netpay .synth-head { background: var(--orange); }
+.synth-omnigas .synth-head { background: var(--green); }
+.synth-smart .synth-head { background: var(--purple); }
+.synth-item { font-size: 0.82rem; line-height: 1.5; color: var(--text); padding: 0.55rem 0; border-bottom: 1px solid var(--gray-mid); }
+.synth-item:last-child { border-bottom: none; }
+.synth-risk { margin-top: 0.9rem; padding: 0.7rem; border-radius: 4px; font-size: 0.78rem; line-height: 1.5; }
+.synth-punto .synth-risk { background: #f0f4ff; color: #1b2e6b; }
+.synth-netpay .synth-risk { background: #fff3e8; color: #6b2d00; }
+.synth-omnigas .synth-risk { background: #f0fff5; color: #0a2e1c; }
+.synth-smart .synth-risk { background: #f4f0ff; color: #2e1460; }
+
+/* DARK SECTION */
+#conclusiones { background: var(--navy); }
+.dark-section .section-number { color: rgba(255,255,255,0.38); }
+.dark-section .section-title { color: #fff; }
+.dark-section .section-desc { color: rgba(255,255,255,0.5); }
+.dark-section .section-divider { background: var(--blue); }
+.dark-label { font-size: 0.63rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 0.75rem; font-family: 'DM Mono', monospace; }
+
+/* FOOTER */
+.footer-note { padding: 1.5rem 2rem; text-align: center; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.07); }
+.footer-note p { font-size: 0.7rem; color: rgba(255,255,255,0.22); font-family: 'DM Mono', monospace; line-height: 1.7; max-width: 900px; margin: 0 auto; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.rd1 { transition-delay: 0.1s; } .rd2 { transition-delay: 0.2s; } .rd3 { transition-delay: 0.3s; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .synthesis-grid { grid-template-columns: repeat(2,1fr); }
+  .context-grid { grid-template-columns: 1fr; }
+  .stat-grid-3 { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .synthesis-grid { grid-template-columns: 1fr; }
+  .hl-box { grid-template-columns: 1fr; }
+  .hl-label { padding: 0.7rem 1rem; }
+  .four-col-table th, .four-col-table td { font-size: 0.72rem; padding: 0.6rem 0.5rem; }
+  .contact-table th, .contact-table td { font-size: 0.68rem; padding: 0.55rem 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="site-header">
+  <div class="header-brand"><strong>Análisis Competitivo</strong> · México 2026</div>
+  <div class="nav-divider"></div>
+  <nav class="nav-links">
+    <a class="nav-btn" href="#contexto">Contexto</a>
+    <a class="nav-btn nb-netpay" href="#netpay">NetPay</a>
+    <a class="nav-btn nb-omnigas" href="#omnigas">OmniGas</a>
+    <a class="nav-btn nb-smart" href="#smartpay">SmartPayment</a>
+    <a class="nav-btn" href="#punto">Punto</a>
+    <a class="nav-btn" href="#comparativo">Análisis Comparativo y Conclusiones</a>
+  </nav>
+</header>
+
+<div class="page">
+
+<!-- COVER -->
+<section id="cover" class="section">
+  <div class="cover-bg"></div><div class="cover-grid"></div>
+  <div class="cover-content">
+    <div class="cover-tag">Sector · Medios de Pago · Gasolineras · México</div>
+    <h1 class="cover-title">Análisis<br><span class="accent">Competitivo</span><br>de Mercado</h1>
+    <p class="cover-sub">Sector de Medios de Pago en Estaciones de Servicio<br>México – Edición 2026</p>
+    <div class="cover-companies">
+      <div class="cover-company cc-punto">Punto · Edenred</div>
+      <div class="cover-company cc-netpay">NetPay · FEMSA/Spin</div>
+      <div class="cover-company cc-omnigas">OmniGas · Bankaool</div>
+      <div class="cover-company cc-smart">SmartPayment</div>
+    </div>
+    <p class="cover-meta">Elaborado con base en fuentes públicas, sitios oficiales y prensa especializada</p>
+  </div>
+  <div class="cover-scroll"><div class="cover-scroll-line"></div>scroll</div>
+</section>
+
+<!-- 1. CONTEXTO -->
+<section id="contexto" class="section">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-number">01 — Contexto</span>
+      <h2 class="section-title">Contexto de Mercado</h2>
+      <p class="section-desc">El sector gasolinero mexicano en 2026 atraviesa un momento de transformación estructural acelerada, impulsado por tres fuerzas convergentes:</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="context-grid reveal rd1">
+      <div class="context-card cc-reg">
+        <div class="cc-badge">Presión Regulatoria</div>
+        <p>El Gobierno Sheinbaum anunció que hará obligatorios los pagos digitales en estaciones de servicio y casetas de peaje en 2026. La ABM propuso una reducción temporal de las tarifas de intercambio en estaciones para incentivar las transacciones electrónicas.</p>
+      </div>
+      <div class="context-card cc-dem">
+        <div class="cc-badge">Demanda del Mercado</div>
+        <p>De las ~14.200 estaciones de servicio en México, la gran mayoría aún opera con predominancia de efectivo, especialmente en pagos en pista y propinas de despachadores. La digitalización está en etapa inicial.</p>
+      </div>
+      <div class="context-card cc-tec">
+        <div class="cc-badge">Oportunidad Tecnológica</div>
+        <p>La integración con controles volumétricos, aceptación de QR/CoDi, gestión de datos en tiempo real, plataformas de administración y servicios de valor agregado crean una ventana de diferenciación para proveedores especializados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. NETPAY -->
+<section id="netpay" class="section">
+  <div class="section-bg-label">NetPay</div>
+  <div class="section-inner">
+    <div class="section-header netpay-accent reveal">
+      <span class="section-number">02 — Competidor</span>
+      <h2 class="section-title">NetPay | FEMSA / Spin by OXXO</h2>
+      <p class="section-desc">Competidor estratégico con el respaldo de uno de los mayores conglomerados de México</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="card reveal">
+      <div class="card-title">2.1 · Estructura y Posicionamiento Estratégico</div>
+      <p>NetPay es una empresa de tecnología financiera fundada en 2008 y adquirida íntegramente por FEMSA en 2023. Actúa como el agregador de pagos de la división Spin by OXXO – la plataforma digital de FEMSA enfocada en inclusión financiera. En 2026, se posiciona con agresividad en el sector gasolinero, presentando en la ONEXPO 2026 una solución integral que va más allá de la simple aceptación de pagos: busca transformar la lógica operativa y financiera completa de las estaciones de servicio.</p>
+      <p>El respaldo de FEMSA – conglomerado con 135 años de historia, operador de las tiendas OXXO (la red de corresponsalías bancarias más amplia del país), OXXO GAS y Coca-Cola FEMSA – confiere a NetPay una posición competitiva única: acceso a escala, infraestructura física, relación con operadores y expertise en el ecosistema gasolinero.</p>
+    </div>
+    <div class="card reveal rd1">
+      <div class="card-title">2.2 · Línea de Terminales de Pago</div>
+      <table class="data-table">
+        <tbody>
+          <tr><td class="terminal-name">Smart</td><td>Para negocios en general. Flujo, velocidad y eficiencia.</td></tr>
+          <tr><td class="terminal-name">Smart+</td><td>Diseño de nueva generación para negocios con mayor volumen.</td></tr>
+          <tr><td class="terminal-name">Fort</td><td>Equipo robusto para uso exterior y condiciones exigentes – perfil sugerido para estaciones de servicio.</td></tr>
+          <tr><td class="terminal-name">Go</td><td>Para negocios en movimiento: entregas a domicílio y ventas ambulantes.</td></tr>
+          <tr><td class="terminal-name">Kiosk</td><td>Para puntos de autoatención con operación continua y sin supervisión.</td></tr>
+          <tr><td class="terminal-name">Station</td><td>Adaptable a formatos de autocobro – perfil ideal para estaciones con mayor automatización.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card reveal rd1">
+      <div class="card-title">Solución Gasolinera – ONEXPO 2026 (tres capas integradas)</div>
+      <ul class="bullet-list bl-orange">
+        <li><strong>Aceptación de pagos:</strong> tarjetas de todos los sistemas (Visa, Mastercard, AmEx, Carnet), QR y CoDi – vinculados directamente al control volumétrico (ControlGas, NexusFuel, Kernotek, ControlNet, EnerFuelTech y Polaris)</li>
+        <li><strong>Administración de ingresos:</strong> gestión completa de los flujos financieros de la estación</li>
+        <li><strong>Dispersión de recursos:</strong> digitalización del flujo de efectivo interno, incluidas propinas de despachadores vía Spin by OXXO</li>
+      </ul>
+      <br>
+      <p style="font-size:0.875rem;line-height:1.65;color:var(--text-muted);"><strong>Corresponsalía Bancaria:</strong> NetPay busca replicar el modelo de corresponsalía bancaria de OXXO en las estaciones, transformando cada punto en un lugar de depósito y retiro de dinero – sin costo adicional en ciertos esquemas de conversión de efectivo a medios digitales (vía Spin by OXXO).</p>
+      <p style="font-size:0.875rem;line-height:1.65;color:var(--text-muted);margin-top:0.5rem;"><strong>NetPay Manager:</strong> Portal de control y visualización de movimientos en tiempo real, con reportes de transacciones, gestión e información de facturación.</p>
+    </div>
+    <div class="prop-box reveal rd2">
+      <div class="prop-header" style="background:var(--orange);">2.3 · Propuesta de Valor – Propuesta central de NetPay en el sector gasolinero</div>
+      <div class="prop-body">
+        <p class="intro">"Digitalización total de la operación" – NetPay no vende únicamente una terminal POS; vende la transformación del modelo operativo de la estación.</p>
+        <ul class="bullet-list bl-orange">
+          <li>Terminal Fort y Station: equipos diseñados para ambientes exteriores y de uso intensivo – diferencial para el entorno gasolinero</li>
+          <li>Integración con controles volumétricos: vinculación directa con el volumen de venta de la bomba</li>
+          <li>Modelo Spin/OXXO: aprovechamiento de una red de más de 20.000 tiendas OXXO como referencia para el modelo financiero</li>
+          <li>Cero costo adicional a la estación en ciertos esquemas de conversión de efectivo, vía alianza con Spin by OXXO</li>
+          <li>Presencia nacional en los 32 estados de la República desde 2008</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-title reveal" style="margin-bottom:0.75rem;">2.4 · Datos de Escala y Ambiciones</div>
+    <div class="stat-grid stat-grid-3 reveal rd1">
+      <div class="stat-box" style="background:#c05010;"><div class="stat-number">~1.700</div><div class="stat-label">estaciones activas (2026)</div></div>
+      <div class="stat-box" style="background:var(--orange);"><div class="stat-number">5.000</div><div class="stat-label">meta para 2027</div></div>
+      <div class="stat-box" style="background:#d4890f;"><div class="stat-number">35%</div><div class="stat-label">del universo nacional (meta)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. OMNIGAS -->
+<section id="omnigas" class="section">
+  <div class="section-bg-label">OmniGas</div>
+  <div class="section-inner">
+    <div class="section-header omnigas-accent reveal">
+      <span class="section-number">03 — Competidor</span>
+      <h2 class="section-title">OmniGas | Bankaool (Grupo Omni)</h2>
+      <p class="section-desc">Competidor disruptivo con modelo financiero único</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="card reveal">
+      <div class="card-title">3.1 · Estructura y Posicionamiento Estratégico</div>
+      <p>OmniGas es una iniciativa del Grupo Omni (liderado por Moisés Chávez) en alianza con el banco Bankaool (cuyo director es Juan Antonio Pérez Simón). Lanzada en la ONEXPO 2025, se define como una <strong>"infraestructura financiera"</strong> que entiende el ADN de las gasolineras.</p>
+      <p>El tagline central <em>"Rentabilidad desde el día que entras"</em> sintetiza una propuesta que va más allá de procesar pagos: OmniGas actúa como un banco especialista en el sector, ofreciendo liquidez, crédito, traslado de valores y servicios de corresponsalía bancaria. Bankaool es el aliado financiero de la operación.</p>
+    </div>
+    <div class="card reveal rd1">
+      <div class="card-title">3.2 · Ecosistema Financiero para Estaciones de Servicio</div>
+      <ul class="bullet-list bl-green">
+        <li>TPV sin comisiones para la estación</li>
+        <li>Abono el mismo día para mejorar el flujo de caja</li>
+        <li>Caja OmniGas: punto de retiro de efectivo y servicios financieros para el consumidor (modelo corresponsalía)</li>
+        <li>Crédito por volumen: línea de crédito evaluada con base en las ventas reales de la estación</li>
+        <li>Caja inteligente integrada a la estación</li>
+        <li>Traslado de valores gratuito durante el período de conocimiento de la operación financiera</li>
+        <li>Depósito automático del efectivo recaudado directamente a la cuenta bancaria (alianza con VSAFE)</li>
+        <li>Reportes analíticos en tiempo real para administradores</li>
+      </ul>
+    </div>
+    <div class="card reveal rd1">
+      <div class="card-title">Módulo de Movilidad (en desarrollo)</div>
+      <ul class="bullet-list bl-green">
+        <li>Pago simplificado de combustible, peajes y estacionamientos integrado</li>
+        <li>Sistemas de prepago y generación de códigos para carga de combustible sin operador</li>
+        <li>Descuentos y condiciones por fidelidad</li>
+      </ul>
+    </div>
+    <div class="prop-box reveal rd2">
+      <div class="prop-header" style="background:var(--green);">3.3 · Propuesta de Valor – Propuesta central de OmniGas</div>
+      <div class="prop-body">
+        <p class="intro">"Más seguridad. Más liquidez. Más rentabilidad" – OmniGas no compite por la aceptación de pagos; compite por la transformación de la operación financiera del posto.</p>
+        <ul class="bullet-list bl-green">
+          <li>Posicionamiento único: único actor que se presenta como banco + corresponsal + TPV en un mismo ecosistema</li>
+          <li>Modelo de ingresos adicionales: las estaciones ganan comisión por cada transacción de depósito/retiro realizada por los consumidores</li>
+          <li>Eliminación de intermediarios que retienen comisiones entre usuarios y distribuidores</li>
+          <li>Bankaool asume las comisiones de corresponsalía, haciendo el modelo financieramente atractivo para la estación</li>
+          <li>Cobertura 24/7 en servicios bancarios para consumidores finales</li>
+          <li>Competidor potencial de tiendas OXXO en modelo de corresponsalía: los postos tienen volumen de efectivo significativamente superior</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card reveal rd2">
+      <div class="card-title">3.4 · Ambiciones de Mercado</div>
+      <p>En marzo de 2025, OmniGas comunicó al mercado su intención de iniciar la implementación en aproximadamente <strong>9.000 estaciones</strong> en el segundo semestre de 2025. Se trata de una estrategia agresiva, apoyada en la infraestructura bancaria de Bankaool y en el modelo de negocio de corresponsalía ya extendido en el retail mexicano.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. SMARTPAYMENT -->
+<section id="smartpay" class="section">
+  <div class="section-bg-label">Smart</div>
+  <div class="section-inner">
+    <div class="section-header smart-accent reveal">
+      <span class="section-number">04 — Competidor</span>
+      <h2 class="section-title">SmartPayment | Smart Payment Solutions S.A. de C.V.</h2>
+      <p class="section-desc">Competidor especialista – HUB de medios de pago con presencia en el sector gasolinero</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="card reveal">
+      <div class="card-title">4.1 · Estructura y Posicionamiento Estratégico</div>
+      <p>SmartPayment (Smart Payment Solutions S.A. de C.V.) es una empresa privada mexicana fundada hace más de 10 años, con sede en Ciudad de México (Insurgentes Sur #2453 / Av. Río Churubusco 601, Piso 30, Xoco, Benito Juárez). Con una plantilla de entre 51 y 200 empleados, se posiciona como un <strong>HUB de medios de pago</strong> que permite a los establecimientos recibir distintos medios de pago, tanto en sitio como en línea, de manera sencilla y segura.</p>
+      <p>Su propuesta central es la simplificación: una sola integración para acceder a múltiples medios de pago. El sector gasolinero figura explícitamente como uno de sus verticales de negocio, con una página dedicada en su sitio web (smartpayment.com.mx/gasolineras/). La empresa procesa más de 240 millones de transacciones anuales, dato equiparable al volumen declarado por Punto (Edenred), lo que la sitúa como un competidor de escala relevante.</p>
+    </div>
+    <div class="card reveal rd1">
+      <div class="card-title">4.2 · Soluciones Ofrecidas</div>
+      <p style="font-size:0.875rem;font-weight:600;color:var(--navy);margin-bottom:0.6rem;">Aceptación de Medios de Pago</p>
+      <ul class="bullet-list bl-purple" style="margin-bottom:1.25rem;">
+        <li>Tarjetas de crédito y débito (Visa, Mastercard, AmEx, Carnet)</li>
+        <li>Monederos electrónicos corporativos: Pluxee y otros</li>
+        <li>Pagos con códigos QR (CoDi/DiMo)</li>
+        <li>Pagos en línea y presenciales – modelo HUB multicanal</li>
+      </ul>
+      <p style="font-size:0.875rem;font-weight:600;color:var(--navy);margin-bottom:0.6rem;">Solución para Gasolineras</p>
+      <ul class="bullet-list bl-purple" style="margin-bottom:1.25rem;">
+        <li>Terminal de pago especializada para el entorno de estaciones de servicio</li>
+        <li>Integración con controles volumétricos de la pista</li>
+        <li>Aceptación de monederos corporativos y tarjetas bancarias en un mismo equipo</li>
+        <li>Solución adaptada a las necesidades del modelo gasolinero: venta en pista, propinas, jarreo</li>
+        <li>Opciones diseñadas a la medida del modelo de negocio de cada estación</li>
+      </ul>
+      <p style="font-size:0.875rem;font-weight:600;color:var(--navy);margin-bottom:0.6rem;">Portal de Gestión (SmartDocs / Portal de Afiliados)</p>
+      <ul class="bullet-list bl-purple">
+        <li>Portal de manuales y documentación para operadores</li>
+        <li>Flujo de venta, devolución y cancelación de ventas</li>
+        <li>Reporte de transacciones descargable y reportes de corte y conciliación</li>
+        <li>Conexión con el punto de venta del establecimiento</li>
+      </ul>
+    </div>
+    <div class="prop-box reveal rd2">
+      <div class="prop-header" style="background:var(--purple);">4.3 · Propuesta de Valor – Propuesta central de SmartPayment</div>
+      <div class="prop-body">
+        <p class="intro">"Somos un HUB que te permite recibir distintos medios de pago de manera sencilla y segura" – SmartPayment posiciona la simplicidad de integración y la amplitud de medios aceptados como su diferencial central.</p>
+        <ul class="bullet-list bl-purple">
+          <li>HUB multi-medios: una sola integración que habilita tarjetas bancarias, monederos y QR – reduce fricción operativa vs. contratar múltiples procesadores</li>
+          <li>Escala comprobada: 240M transacciones anuales – comparable al volumen de Punto (Edenred)</li>
+          <li>Presencia explícita en gasolineras: vertical dedicado con solución y equipo específico para estaciones de servicio</li>
+          <li>Flexibilidad de modelo: soluciones en sitio y en línea, adaptables al modelo de negocio de cada estación</li>
+          <li>Empresa 100% mexicana privada: agilidad en adaptación local y regulatoria</li>
+          <li>Atención multicanal: teléfono (55 5351 8420 / 800 347 6278), redes sociales activas</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-title reveal" style="margin-bottom:0.75rem;">4.4 · Datos de Escala</div>
+    <div class="stat-grid stat-grid-3 reveal rd1">
+      <div class="stat-box" style="background:#5a2d8a;"><div class="stat-number">240M+</div><div class="stat-label">transacciones anuales</div></div>
+      <div class="stat-box" style="background:var(--purple);"><div class="stat-number">51–200</div><div class="stat-label">empleados (empresa privada)</div></div>
+      <div class="stat-box" style="background:#8b5cc0;"><div class="stat-number">10+</div><div class="stat-label">años en operación en México</div></div>
+    </div>
+    <div class="card reveal rd2">
+      <div class="card-title">4.5 · Puntos de Atención y Limitaciones Observadas</div>
+      <ul class="bullet-list bl-purple">
+        <li>Escala de penetración en gasolineras no declarada públicamente: SmartPayment no publica cifras de cobertura específica en el sector gasolinero</li>
+        <li>Sin respaldo de grupo corporativo: opera como empresa independiente – puede ser percibido como riesgo de continuidad por grandes cadenas gasolineras</li>
+        <li>Propuesta de valor no diferenciada en el segmento: no comunica un diferencial específico para gasolineras comparable al crédito por volumen (OmniGas) o el Ticket Car (Punto)</li>
+        <li>Sin certificaciones publicadas: no se encontraron referencias a certificaciones PCI DSS, ISO 27001 u otras equivalentes en su sitio web</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 5. PUNTO -->
+<section id="punto" class="section">
+  <div class="section-bg-label">Punto</div>
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-number">05 — La empresa analizada</span>
+      <h2 class="section-title">Punto | Edenred</h2>
+      <p class="section-desc">Solución especializada en el sector gasolinero</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="card reveal">
+      <div class="card-title">5.1 · Estructura y Posicionamiento Estratégico</div>
+      <p>Punto es una empresa del Grupo Edenred con actuación especializada en el sector gasolinero mexicano. Se posiciona como la solución más completa y segura del segmento, integrando distintos pagos electrónicos en un único terminal (Punto Smart). Edenred tiene presencia en el mercado mexicano desde hace más de 30 años, y el negocio de gestión de gastos corporativos —incluido Ticket Car para la gestión de combustible— es la vertical más relevante en el país, representando cerca del 50% de los ingresos. Punto es el brazo de medios de pago de Edenred en el sector gasolinero.</p>
+    </div>
+    <div class="card reveal rd1">
+      <div class="card-title">5.2 · Terminal Punto Smart</div>
+      <ul class="bullet-list bl-blue" style="margin-bottom:1.25rem;">
+        <li>Conectividad maximizada: 3G, 4G, Wi-Fi y Bluetooth</li>
+        <li>Pantalla multi-touch 5-inch TFT full color</li>
+        <li>Batería de larga duración: 2.600 mAh</li>
+        <li>Sistema operativo SmartPOS Android</li>
+        <li>Todos los pagos en una sola terminal: banda, chip, contactless y QR</li>
+        <li>Asistente virtual Punto Bot</li>
+      </ul>
+      <div class="card-title" style="margin-bottom:0.75rem;">Aceptación de Medios de Pago</div>
+      <table class="data-table">
+        <tbody>
+          <tr><td style="color:var(--navy);">Adquirente (Tarjetas Bancarias)</td><td>Visa, Mastercard, American Express, Carnet</td></tr>
+          <tr><td style="color:var(--navy);">Monederos Electrónicos</td><td>Ticket Car (Edenred), Pluxee, Upsívale</td></tr>
+          <tr><td style="color:var(--navy);">Controles Volumétricos</td><td>ControlGas, Everilion, eGas, eControl, Avalon</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card reveal rd1">
+      <div class="card-title">Punto Manager – Plataforma de Gestión</div>
+      <ul class="bullet-list bl-blue">
+        <li>Consulta en tiempo real de los medios de pago habilitados</li>
+        <li>Reportes detallados exportables a Excel y Word (hora, tipo de transacción, monto, operador)</li>
+        <li>Acceso desde computadora o celular – visibilidad por grupo, región, estación, cadena</li>
+        <li>Administración de perfiles y usuarios de TPV</li>
+        <li>Consulta y descarga de facturas</li>
+        <li>Reporte de incidencias (fallas) de las terminales</li>
+        <li>Detección de fraudes mediante historial completo de operaciones</li>
+      </ul>
+    </div>
+    <div class="prop-box reveal rd2">
+      <div class="prop-header" style="background:var(--navy);">5.3 · Propuesta de Valor – Propuesta central de Punto</div>
+      <div class="prop-body">
+        <p class="intro">"La solución completa" – Punto no se posiciona únicamente como un TPV, sino como un aliado que incrementa el tráfico en las estaciones al conectar a los clientes que utilizan Ticket Car y otros medios de pago.</p>
+        <ul class="bullet-list bl-blue">
+          <li>Integración de punta a punta: desde la terminal hasta el control volumétrico, pasando por el gateway y la gestión</li>
+          <li>Única terminal que acepta simultáneamente tarjetas bancarias, monederos y controla el volumen de combustible</li>
+          <li>Portal de gestión (Punto Manager) que centraliza la operación y reduce procesos administrativos</li>
+          <li>Certificaciones ISO/IEC 27001, ISO/IEC 20000-1, ISO 9001 y PCI DSS – diferenciales regulatorios relevantes</li>
+          <li>Miembro asociado de ASAMEP (Asociación de Agregadores de Medios de Pago)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-title reveal" style="margin-bottom:0.75rem;">5.4 · Datos de Escala</div>
+    <div class="stat-grid stat-grid-3 reveal rd1">
+      <div class="stat-box" style="background:var(--navy-mid);"><div class="stat-number">+222M</div><div class="stat-label">transacciones/año</div></div>
+      <div class="stat-box" style="background:var(--blue);"><div class="stat-number">+7.000</div><div class="stat-label">estaciones en México</div></div>
+      <div class="stat-box" style="background:#3a8ecc;"><div class="stat-number">+71.800</div><div class="stat-label">establecimientos afiliados</div></div>
+    </div>
+    <div class="card reveal rd2">
+      <div class="card-title">5.5 · Canales de Soporte</div>
+      <table class="data-table">
+        <tbody>
+          <tr><td style="color:var(--navy);">PuntoBot – WhatsApp 24/7</td><td>(55) 7907-0013 | Solicitudes y reportes de fallas de TPV</td></tr>
+          <tr><td style="color:var(--navy);">Teléfono</td><td>(55) 5020-3390 | Errores de aplicación y dudas de funcionamiento</td></tr>
+          <tr><td style="color:var(--navy);">Correo</td><td>soporte@puntomexico.com.mx | Documentación, facturas, terminales adicionales</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 6. ANÁLISIS COMPARATIVO -->
+<section id="comparativo" class="section">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-number">06 — Comparativo</span>
+      <h2 class="section-title">Análisis Comparativo de las Cuatro Empresas</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="card-title reveal" style="margin-bottom:0.75rem;">6.1 · Posicionamiento Estratégico</div>
+    <table class="four-col-table reveal rd1">
+      <thead><tr><th class="th-punto">PUNTO (Edenred)</th><th class="th-netpay">NETPAY (FEMSA/Spin)</th><th class="th-omnigas">OMNIGAS (Bankaool)</th><th class="th-smart">SMARTPAYMENT</th></tr></thead>
+      <tbody>
+        <tr><td>Especialista en pagos gasolineros</td><td>Digitalizador de la operación gasolinera</td><td>Infraestructura financiera del posto</td><td>HUB de medios de pago multi-sector</td></tr>
+        <tr><td>TPV → control volumétrico → gestión</td><td>Terminal + Admin + Dispersión de recursos</td><td>TPV + Banco + Corresponsal + Crédito</td><td>Integración única para múltiples medios</td></tr>
+        <tr><td>Grupo Edenred – 30+ años en México</td><td>FEMSA – 135 años, OXXO, Spin by OXXO</td><td>Bankaool + Grupo Omni – startup especializada</td><td>Empresa mexicana privada – 10+ años</td></tr>
+        <tr><td>7.000+ estaciones activas</td><td>~1.700 activas | Meta: 5.000 (2027)</td><td>Ambición: 9.000 estaciones (2025/26)</td><td>Sin cifra pública por sector gasolinero</td></tr>
+      </tbody>
+    </table>
+
+    <div class="card-title reveal" style="margin-bottom:0.75rem;margin-top:2rem;">6.2 · Medios de Pago Aceptados</div>
+    <table class="four-col-table reveal rd1">
+      <thead><tr><th class="th-punto">PUNTO (Edenred)</th><th class="th-netpay">NETPAY (FEMSA/Spin)</th><th class="th-omnigas">OMNIGAS (Bankaool)</th><th class="th-smart">SMARTPAYMENT</th></tr></thead>
+      <tbody>
+        <tr><td>Visa, Mastercard, AmEx, Carnet</td><td>Visa, Mastercard, AmEx, Carnet</td><td>Por definir (foco QR/CoDi y efectivo)</td><td>Visa, Mastercard, AmEx, Carnet</td></tr>
+        <tr><td>Ticket Car, Pluxee, Upsívale</td><td>Spin by OXXO (monedero FEMSA)</td><td>Corresponsalía bancaria Bankaool</td><td>Pluxee y otros monederos</td></tr>
+        <tr><td>Banda, chip, contactless, QR</td><td>QR, CoDi (pago instantáneo)</td><td>Depósito/retiro de efectivo</td><td>Presencial y en línea – QR</td></tr>
+        <tr><td>ControlGas, Everilion, eGas, eControl, Avalon</td><td>ControlGas, NexusFuel, Kernotek, ControlNet, EnerFuelTech, Polaris</td><td>Kernotek</td><td>Integración con control volumétrico</td></tr>
+      </tbody>
+    </table>
+
+    <div class="card-title reveal" style="margin-bottom:0.75rem;margin-top:2rem;">6.3 · Diferenciales Competitivos</div>
+    <table class="four-col-table reveal rd1">
+      <thead><tr><th class="th-punto">PUNTO (Edenred)</th><th class="th-netpay">NETPAY (FEMSA/Spin)</th><th class="th-omnigas">OMNIGAS (Bankaool)</th><th class="th-smart">SMARTPAYMENT</th></tr></thead>
+      <tbody>
+        <tr><td>Ticket Car + banc. + volumétrico en 1 terminal</td><td>Respaldo FEMSA/OXXO + corresponsalía</td><td>Único: banco + TPV + crédito por volumen</td><td>HUB: 1 integración = múltiples medios</td></tr>
+        <tr><td>4 certificaciones ISO + PCI DSS</td><td>Terminal Fort: robusta para exterior</td><td>Rentabilidad inmediata vía corresponsalía</td><td>240M transacciones/año – escala real</td></tr>
+        <tr><td>Escala: 222M trans./año + 71.800 afiliados</td><td>Cero costo estación en conversión de efectivo</td><td>Traslado de valores gratuito en onboarding</td><td>Empresa 100% mexicana – adaptación local</td></tr>
+        <tr><td>ASAMEP + mayor red de vales corporativos</td><td>32 estados desde 2008</td><td>Caja inteligente – manejo de efectivo seguro</td><td>Soluciones en sitio y en línea</td></tr>
+      </tbody>
+    </table>
+
+    <div class="card-title reveal" style="margin-bottom:0.75rem;margin-top:2rem;">6.4 · Canales de Contacto, Redes Sociales y Atención</div>
+    <table class="contact-table reveal rd1">
+      <thead><tr><th class="ct-label"></th><th class="ct-p">PUNTO (Edenred)</th><th class="ct-n">NETPAY (FEMSA/Spin)</th><th class="ct-o">OMNIGAS (Bankaool)</th><th class="ct-s">SMARTPAYMENT</th></tr></thead>
+      <tbody>
+        <tr><td>Teléfono</td><td>(55) 5020-3390</td><td>(81) 8000-4500</td><td>No publica canal telefónico directo</td><td>55 5351 8420 / 800 347 6278</td></tr>
+        <tr><td>WhatsApp</td><td>(55) 7907-0013 (24/7)</td><td>(81) 8000-4500</td><td>No publicado</td><td>No publicado en sitio web</td></tr>
+        <tr><td>Correo</td><td><a href="mailto:soporte@puntomexico.com.mx">soporte@puntomexico.com.mx</a></td><td><a href="mailto:soporte@netpay.com.mx">soporte@netpay.com.mx</a></td><td>Formulario web interno</td><td>Formulario web en sitio</td></tr>
+        <tr><td>Horario</td><td>24/7 vía PuntoBot</td><td>No especificado explícitamente</td><td>Operaciones bancarias 24/7</td><td>No especificado en sitio</td></tr>
+        <tr><td>Redes</td><td>FB · IG · LinkedIn · YouTube</td><td>FB · X · LinkedIn · IG · YouTube</td><td>FB · IG · LinkedIn</td><td>FB · LinkedIn · IG</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 7. AMENAZAS Y OPORTUNIDADES -->
+<section id="amenazas" class="section">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-number">07 — Perspectiva Punto</span>
+      <h2 class="section-title">Análisis de Amenazas y Oportunidades</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="threat-box reveal">
+      <div class="threat-header th-red">EVALUACIÓN: Amenaza ALTA – NetPay (FEMSA/Spin) · Prioridad estratégica máxima</div>
+      <div class="threat-body">
+        <p>NetPay es el competidor más peligroso para Punto en el corto y mediano plazo, por los siguientes motivos:</p>
+        <ul class="bullet-list bl-red">
+          <li>Posicionamiento similar: ambas buscan ser la "solución completa" para estaciones – integración de TPV + control volumétrico + gestión</li>
+          <li>Respaldo institucional: FEMSA/OXXO tienen relación histórica con operadores, acceso a datos de consumo y capacidad de subsidiar la adopción</li>
+          <li>Meta agresiva: crecer 300% en 2 años (de 1.700 a 5.000 estaciones) con anuncio público en la ONEXPO 2026</li>
+          <li>Alianza Spin by OXXO: convierte propinas y efectivo de despachadores en medio digital sin costo adicional – argumento poderoso para el operador</li>
+          <li>Alineación regulatoria: solución citada como alineada a la agenda Sheinbaum de digitalización obligatoria</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="threat-box reveal rd1">
+      <div class="threat-header th-green2">EVALUACIÓN: Amenaza MEDIA-ALTA – OmniGas (Bankaool) · Disruptora potencial de largo plazo</div>
+      <div class="threat-body">
+        <p>OmniGas representa una amenaza de naturaleza diferente: no compite directamente en procesamiento de pagos, sino que busca capturar la relación financiera total de la estación:</p>
+        <ul class="bullet-list bl-green">
+          <li>Modelo financiero superior: si se ejecuta bien, la estación prefiere un aliado que ofrece crédito + TPV + traslado + banco en lugar de solo un POS</li>
+          <li>Ambición de 9.000 estaciones: de alcanzarse, sería la mayor red del sector en México</li>
+          <li>Ingresos adicionales a la estación vía corresponsalía: argumento único que ningún otro competidor ofrece actualmente</li>
+          <li>Riesgo de captura de la relación: la estación que abra cuenta en Bankaool vía OmniGas tendrá menor incentivo de migrar</li>
+          <li>Aún en fase de implementación – la ejecución del modelo es el principal riesgo de OmniGas</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="threat-box reveal rd2">
+      <div class="threat-header th-purple2">EVALUACIÓN: Amenaza MEDIA – SmartPayment · Competidor por precio y simplicidad en el segmento medio</div>
+      <div class="threat-body">
+        <p>SmartPayment representa una amenaza silenciosa que no debe subestimarse:</p>
+        <ul class="bullet-list bl-purple">
+          <li>Escala equivalente: 240M transacciones anuales (comparable a Punto Edenred) sugiere base instalada relevante en el mercado general de pagos mexicano</li>
+          <li>HUB multi-medios con presencia explícita en gasolineras: página dedicada al sector y solución específica para estaciones de servicio</li>
+          <li>Empresa 100% mexicana con mayor agilidad comercial: puede competir agresivamente en precio y condiciones frente a actores de grupo internacional</li>
+          <li>Riesgo bajo/medio en el corto plazo por falta de datos de penetración específica en gasolineras y ausencia de certificaciones publicadas</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-title reveal" style="margin-bottom:0.75rem;margin-top:2rem;">7.4 · Ventajas Competitivas de Punto a Preservar</div>
+    <table class="adv-table reveal rd1">
+      <thead><tr><th>Ventaja</th><th>Implicación Estratégica</th></tr></thead>
+      <tbody>
+        <tr><td>Escala y trayectoria comprobada (7.000 estaciones)</td><td>Base instalada sólida difícil de replicar rápidamente por los competidores</td></tr>
+        <tr><td>Ticket Car + Pluxee + Upsívale en una terminal</td><td>Aunque SmartPayment también acepta monederos, Punto posee la red emisora (Ticket Car) – argumento de tráfico incremental único</td></tr>
+        <tr><td>4 certificaciones internacionales (ISO + PCI DSS)</td><td>Ningún competidor identificado publica certificaciones equivalentes – diferencial de confianza en licitaciones corporativas</td></tr>
+        <tr><td>5 integraciones de control volumétrico comprobadas</td><td>Mayor compatibilidad técnica del mercado – reduce fricción en el onboarding vs. competidores con menos integraciones</td></tr>
+        <tr><td>Punto Manager – plataforma de gestión completa</td><td>Herramienta de retención: cuanto más usa el operador el Manager, más difícil es migrar</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 8. CONTEXTO MACRO -->
+<section id="contexto-macro" class="section">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-number">08 — Macro</span>
+      <h2 class="section-title">Contexto Macro: Oportunidad de Mercado 2026</h2>
+      <p class="section-desc">El sector gasolinero mexicano se encuentra en el punto de inflexión más relevante de su historia reciente para los proveedores de medios de pago:</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="numbered-list reveal rd1">
+      <div class="numbered-item"><div class="num-badge">01</div><div class="num-content"><strong>REGULACIÓN FAVORABLE:</strong> El Gobierno Sheinbaum anunció que hará obligatorios los pagos digitales en estaciones y casetas de peaje en 2026, creando demanda mandatoria para soluciones como las de las cuatro empresas analizadas.</div></div>
+      <div class="numbered-item"><div class="num-badge">02</div><div class="num-content"><strong>REDUCCIÓN DE MDR:</strong> La ABM propuso reducir temporalmente las comisiones de intercambio en estaciones, reduciendo la barrera económica para la adhesión de los operadores a los medios digitales.</div></div>
+      <div class="numbered-item"><div class="num-badge">03</div><div class="num-content"><strong>PRESIÓN OPERATIVA:</strong> La lucha contra el "huachicol fiscal", la obligatoriedad del control volumétrico, la trazabilidad fiscal y la digitalización obligan a invertir en tecnología.</div></div>
+      <div class="numbered-item"><div class="num-badge">04</div><div class="num-content"><strong>NUEVO PERFIL DEL OPERADOR:</strong> La estación moderna no solo busca aceptar tarjeta – busca reducir el efectivo, mejorar la seguridad, acceder a crédito y simplificar la gestión. El ganador será quien entregue más que un POS.</div></div>
+      <div class="numbered-item"><div class="num-badge">05</div><div class="num-content"><strong>MERCADO SUBATENDIDO CON 4 ACTORES ACTIVOS:</strong> Con NetPay (~1.700 est.), SmartPayment (sin cifra publicada), OmniGas (en lanzamiento) y Punto (+7.000 est.), el mercado suma 4 actores compitiendo activamente en digitalización gasolinera, intensificando la presión comercial en los próximos 18-24 meses.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. CONCLUSIONES -->
+<section id="conclusiones" class="section">
+  <div class="section-inner">
+    <div class="section-header dark-section reveal">
+      <span class="section-number">09 — Conclusiones</span>
+      <h2 class="section-title" style="color:#fff;">Conclusiones y Recomendaciones Estratégicas</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <p class="reveal" style="font-size:0.9rem;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:1.5rem;">Las cuatro empresas compiten en el mismo mercado con lógicas y propuestas de valor distintas:</p>
+
+    <div class="synthesis-grid reveal rd1">
+      <div class="synth-col synth-punto">
+        <div class="synth-head">PUNTO – El Especialista</div>
+        <div class="synth-item">Mayor escala actual. Certificaciones. Único con red emisora Ticket Car.</div>
+        <div class="synth-risk">Riesgo: defensividad frente a 3 competidores activos y agresivos.</div>
+      </div>
+      <div class="synth-col synth-netpay">
+        <div class="synth-head">NETPAY – El Digitalizador</div>
+        <div class="synth-item">Respaldo FEMSA. Modelo cero costo. Meta pública 5.000 estaciones.</div>
+        <div class="synth-risk">Riesgo: ejecutar 300% de crecimiento sin degradar la calidad de servicio.</div>
+      </div>
+      <div class="synth-col synth-omnigas">
+        <div class="synth-head">OMNIGAS – El Banquero</div>
+        <div class="synth-item">Propuesta financiera diferenciada. Ingresos adicionales al posto. Crédito por volumen.</div>
+        <div class="synth-risk">Riesgo: complejidad del modelo (banco + TPV + traslado) puede retrasar escalabilidad.</div>
+      </div>
+      <div class="synth-col synth-smart">
+        <div class="synth-head">SMARTPAY – El Simplificador</div>
+        <div class="synth-item">240M trans./año. HUB multimedios. Empresa ágil 100% mexicana.</div>
+        <div class="synth-risk">Riesgo: falta de diferenciación específica para gasolineras.</div>
+      </div>
+    </div>
+
+    <p class="dark-label reveal" style="margin-top:2rem;">9.2 · Recomendaciones para Punto</p>
+
+    <div class="hl-box reveal rd1">
+      <div class="hl-label" style="background:var(--blue);">Ofensiva</div>
+      <div class="hl-content">Ampliar el argumento de "solución completa" con datos concretos: mostrar al gasolinero cuánto tráfico incremental genera Ticket Car – es el único argumento de volumen que ningún competidor puede replicar, ni NetPay ni SmartPayment (que acepta Ticket Car pero no lo emite).</div>
+    </div>
+    <div class="hl-box reveal rd1">
+      <div class="hl-label" style="background:var(--navy-mid);">Diferenciación</div>
+      <div class="hl-content">Comunicar activamente las 4 certificaciones internacionales (ISO 27001, ISO 20000, ISO 9001, PCI DSS): SmartPayment y OmniGas no publican certificaciones equivalentes. Es el argumento de confianza más sólido frente a las 4 empresas competidoras.</div>
+    </div>
+    <div class="hl-box reveal rd2">
+      <div class="hl-label" style="background:var(--green);">Producto</div>
+      <div class="hl-content">Evaluar la incorporación de un elemento financiero (crédito por volumen o capital de trabajo): OmniGas está ocupando ese espacio y puede capturar la "gestión" total del posto, haciendo al TPV una commodity secundaria.</div>
+    </div>
+    <div class="hl-box reveal rd2">
+      <div class="hl-label" style="background:var(--purple);">Defensiva vs. SmartPayment</div>
+      <div class="hl-content">Monitorear de cerca la penetración de SmartPayment en el sector gasolinero: su escala (240M trans./año) y aceptación de monederos lo convierte en el competidor silencioso más subestimado. Si amplía su verticalización en gasolineras con certificaciones y comunicación activa, el impacto en cuentas medianas puede ser significativo.</div>
+    </div>
+    <div class="hl-box reveal rd2">
+      <div class="hl-label" style="background:var(--red);">Mercado</div>
+      <div class="hl-content">Acelerar el proceso de adhesión de nuevas estaciones aprovechando la ventana regulatoria: con la obligatoriedad de pagos digitales en 2026 y 4 actores compitiendo activamente, el próximo ciclo de decisión de los gasolineros es el más crítico de la historia reciente del sector.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-note">
+  <p>Análisis elaborado con base en fuentes públicas: sitios oficiales de las empresas (omnigas.mx, netpay.mx, smartpayment.com.mx), comunicados de prensa FEMSA, La Jornada, El Cronista, FintechExpert MX, Bloomberg Línea, El Financiero, El CEO y LinkedIn | Mayo 2026</p>
+</footer>
+
+</div>
+
+<script>
+const sections = document.querySelectorAll('section[id]');
+const navBtns  = document.querySelectorAll('.nav-btn');
+const sectionMap = { cover:null, contexto:0, netpay:1, omnigas:2, smartpay:3, punto:4, comparativo:5, amenazas:5, 'contexto-macro':5, conclusiones:5 };
+
+function updateNav() {
+  let cur = '';
+  sections.forEach(s => { if (window.scrollY + 80 >= s.offsetTop) cur = s.id; });
+  navBtns.forEach((b, i) => b.classList.toggle('active', i === sectionMap[cur]));
+}
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
+
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.07 });
+revealEls.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
